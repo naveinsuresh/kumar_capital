@@ -1,8 +1,11 @@
 import openai
 import gradio
-from os import KEY
+from dotenv import load_dotenv
+import os
 
-openai.api_key = KEY
+load_dotenv()
+
+openai.api_key = os.environ.get("KEY")
 
 # GPT Prompt
 message_chain = [
@@ -30,7 +33,7 @@ def CustomChatGPT(input):
 
 # Front End Chat Interface
 demo = gradio.Interface(
-    fn=CustomChatGPT, inputs="text", outputs="text", title="Financial Advisor"
+    fn=CustomChatGPT, inputs="text", outputs="text", title="Kumar Capital"
 )
 
 
